@@ -4,7 +4,7 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 const deps = require("./package.json").dependencies;
 module.exports = {
   output: {
-    publicPath: "http://localhost:3006/",
+    publicPath: "https://sosmed-dev.vercel.app/",
   },
 
   resolve: {
@@ -44,8 +44,8 @@ module.exports = {
       name: "social",
       filename: "remoteEntry.js",
       remotes: {
-        mainapp: "mainapp@http://localhost:3005/remoteEntry.js",
-        social: "social@http://localhost:3006/remoteEntry.js",
+        mainapp: "mainapp@https://dashboard-dev-lake.vercel.app/remoteEntry.js",
+        social: "social@https://sosmed-dev.vercel.app/remoteEntry.js",
       },
       exposes: {
         "./Home": "./src/pages/home/Home.js",
