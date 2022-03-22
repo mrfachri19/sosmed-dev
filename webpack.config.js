@@ -46,7 +46,7 @@ module.exports = {
       name: "social",
       filename: "remoteEntry.js",
       remotes: {
-        mainapp: "mainapp@https://dashboard-dev-lake.vercel.app/remoteEntry.js",
+        mainapp: "mainapp@hhttps://dahboard-dev.vercel.app/remoteEntry.js",
         social: "social@https://sosmed-dev.vercel.app/remoteEntry.js",
       },
       exposes: {
