@@ -1,5 +1,7 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const { InjectManifest } = require("workbox-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 const deps = require("./package.json").dependencies;
 module.exports = {
@@ -64,6 +66,19 @@ module.exports = {
     }),
     new HtmlWebPackPlugin({
       template: "./src/index.html",
+    }),
+    new InjectManifest({
+      swSrc: "./src/src-sw.js",
+      swDest: "sw.js",
+    }),
+    new CopyPlugin({
+      patterns: [
+        { from: "./src/favicon.ico", to: "" },
+        { from: "./src/manifest.json", to: "" },
+        { from: "./src/diarium192.png", to: "" },
+        { from: "./src/diarium512.png", to: "" },
+        { from: "./src/apple-touch-icon.png", to: "" },
+      ],
     }),
   ],
 };
